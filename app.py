@@ -1,9 +1,8 @@
 # Imports
 from flask import Flask, render_template, request, redirect, url_for
-from pandas import *
+from pandas import DataFrame, to_datetime
 import pandas
 import numpy as np
-import matplotlib.pyplot as plt
 import json
 import requests
 import time
@@ -49,7 +48,7 @@ def make_plot():
 	df.index = to_datetime(df.index)
 
 	# create a Bokeh plot from the dataframe
-	output_file("stock.html", title="Stock prices changes for last month")
+	# output_file("stock.html", title="Stock prices changes for last month")
 	p = figure(x_axis_type = "datetime")
 	if 'open' in features:
 	    p.line(df.index, df['open'], color='blue', legend='opening price')
@@ -69,3 +68,5 @@ def chart():
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
+ 
+	#app.run(debug=True)
