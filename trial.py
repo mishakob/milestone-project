@@ -32,7 +32,7 @@ def make_plot():
 
 	# calculate one month time period from now
 	now = datetime.now()
-	#end_date = now.strftime('%Y-%m-%d') 
+	end_date = now.strftime('%Y-%m-%d') 
 	start_date = (now - timedelta(days=30)).strftime('%Y-%m-%d')
 
 	# fetch the appropriate dataset via API
